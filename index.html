@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumière — Image Gallery</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER / NAV
+  ============================================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#">
+        <span class="logo-dot"></span>
+        Lumière
+      </a>
+
+      <div class="header-controls">
+        <!-- Search -->
+        <div class="search-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Search images…" aria-label="Search images" />
+          <button class="search-clear" id="clearSearch" aria-label="Clear search">✕</button>
+        </div>
+
+        <!-- Dark-mode toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span class="sun">☀️</span>
+          <span class="moon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-eyebrow">CodeAlpha · Task 1</span>
+      <h1 class="hero-title">A World of <em>Beautiful</em> Images</h1>
+      <p class="hero-sub">Discover, save and download stunning photography — curated just for you.</p>
+    </div>
+    <!-- Floating decorative blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </section>
+
+  <!-- ============================================================
+       FILTER TABS
+  ============================================================ -->
+  <div class="filter-bar" role="navigation" aria-label="Category filters">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="nature">🌿 Nature</button>
+    <button class="filter-btn" data-category="architecture">🏛️ Architecture</button>
+    <button class="filter-btn" data-category="travel">✈️ Travel</button>
+    <button class="filter-btn" data-category="abstract">🎨 Abstract</button>
+    <button class="filter-btn" data-category="portraits">🧑 Portraits</button>
+    <button class="filter-btn" data-category="favorites">❤️ Favorites</button>
+  </div>
+
+  <!-- Results count -->
+  <div class="results-bar">
+    <span id="resultsCount">24 images</span>
+    <span id="noResults" class="no-results hidden">No images found for "<span id="searchTerm"></span>"</span>
+  </div>
+
+  <!-- ============================================================
+       MASONRY GALLERY GRID
+  ============================================================ -->
+  <main class="gallery-grid" id="galleryGrid" aria-label="Image gallery">
+
+    <!-- Images are injected by script.js -->
+
+  </main>
+
+  <!-- ============================================================
+       LIGHTBOX
+  ============================================================ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+
+    <div class="lightbox-panel">
+      <!-- Close -->
+      <button class="lb-btn lb-close" id="lbClose" aria-label="Close lightbox">✕</button>
+
+      <!-- Prev -->
+      <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <!-- Image -->
+      <div class="lb-image-wrap">
+        <img id="lbImage" src="" alt="" />
+        <div class="lb-loader" id="lbLoader"></div>
+      </div>
+
+      <!-- Next -->
+      <button class="lb-btn lb-next" id="lbNext" aria-label="Next image">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <!-- Info bar -->
+      <div class="lb-info">
+        <div class="lb-meta">
+          <span class="lb-title" id="lbTitle"></span>
+          <span class="lb-category" id="lbCategory"></span>
+        </div>
+        <div class="lb-actions">
+          <button class="lb-action-btn" id="lbFav" aria-label="Toggle favourite">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Favourite
+          </button>
+          <a class="lb-action-btn" id="lbDownload" href="#" download aria-label="Download image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+        </div>
+        <div class="lb-counter"><span id="lbCurrent">1</span> / <span id="lbTotal">24</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       BACK-TO-TOP
+  ============================================================ -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <p>Built with ❤️ for <strong>CodeAlpha</strong> Frontend Internship &nbsp;·&nbsp; Task 1 — Image Gallery</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
