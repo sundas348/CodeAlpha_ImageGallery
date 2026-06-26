@@ -1,5 +1,4 @@
 # 🖼️ Lumière — Image Gallery
-CodeAlpha Frontend Internship · Task 1
 
 ## Description
 A beautiful and responsive Image Gallery built with HTML, CSS, and JavaScript featuring a premium glassmorphism design with smooth animations.
@@ -35,8 +34,7 @@ CodeAlpha_ImageGallery/
 https://sundas348.github.io/CodeAlpha_ImageGallery
 
 ## Author
-Sundas
-CodeAlpha Frontend Development Intern
+Sundas bibi
 
 ## 📄 License
 This project is open source and available for educational purposes.
