@@ -32,7 +32,7 @@ CodeAlpha_ImageGallery/
 3. No installation or dependencies needed
 
 ## 🔗 Live Demo
-https://yourusername.github.io/CodeAlpha_ImageGallery
+https://sundas348.github.io/CodeAlpha_ImageGallery
 
 ## Author
 Sundas
